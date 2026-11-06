@@ -91,5 +91,8 @@ D.blocos.forEach(function(b,i){var el=document.getElementById('b'+i);
  if(b.t==='rank')rank(el,b.d,b.color,b.suf);
  else if(b.t==='vbars')vbars(el,b.d,b.suf);
  else if(b.t==='diverg')diverg(el,b.d)});
+/* reporta a altura pro site que embute (iframe ajusta sozinho) */
+function _ph(){try{parent.postMessage({obsSagaspH:document.documentElement.scrollHeight},'*')}catch(e){}}
+addEventListener('load',_ph);addEventListener('resize',_ph);[200,700,1500].forEach(function(t){setTimeout(_ph,t)});
 </script>
 </body></html>
