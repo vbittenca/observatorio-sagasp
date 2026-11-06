@@ -1,0 +1,49 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Observatório SAGASP</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{color-scheme:dark;--ink:#0b1733;--ink-2:#081029;--panel:#13224c;--panel-2:#192a5a;--raised:#20336c;
+--line:rgba(150,174,230,.15);--line-2:rgba(150,174,230,.3);--fg:#eef2fb;--fg-dim:#aab8dc;--fg-mut:#8192bf;
+--accent:#34c9ea;--accent-2:#6ea8ff;--pos:#45d394;
+--display:'Archivo',system-ui,sans-serif;--body:'IBM Plex Sans',system-ui,sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--ink);color:var(--fg);font-family:var(--body);line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-.01em}
+.brand{border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--ink-2),var(--ink))}
+.brand .wrap{display:flex;align-items:center;gap:13px;padding-block:12px;flex-wrap:wrap}
+.mono{width:38px;height:38px;border-radius:10px;background:var(--panel-2);border:1px solid var(--line-2);display:grid;place-items:center;font-family:var(--display);font-weight:800;color:var(--accent);font-size:20px}
+.mk b{font-family:var(--display);font-weight:800;letter-spacing:.13em;font-size:15px;display:block}
+.mk span{color:var(--fg-dim);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.fresh{margin-left:auto;display:inline-flex;align-items:center;gap:7px;background:rgba(69,211,148,.12);border:1px solid rgba(69,211,148,.3);color:#bff3da;border-radius:999px;padding:6px 12px;font-size:12px;font-weight:500}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--pos);box-shadow:0 0 0 3px rgba(69,211,148,.18)}
+.ph{padding-block:26px 6px}.ph h1{font-size:28px;font-weight:700;line-height:1.12}
+.ph p{color:var(--fg-dim);max-width:62ch;margin:10px 0 0;font-size:15px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;padding-block:22px}
+a.card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s}
+a.card:hover{border-color:var(--line-2);transform:translateY(-2px)}
+a.card .ic{width:40px;height:40px;border-radius:11px;background:var(--panel-2);border:1px solid var(--line-2);display:grid;place-items:center;color:var(--accent)}
+a.card h3{font-size:17px;font-weight:700;margin-top:14px}
+a.card p{color:var(--fg-dim);font-size:13.5px;margin:6px 0 0}
+a.card .go{color:var(--accent);font-size:13px;font-weight:600;margin-top:12px;display:inline-block}
+footer{border-top:1px solid var(--line);margin-top:10px}
+footer .wrap{display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;padding-block:16px 28px;color:var(--fg-mut);font-size:12px}
+footer b{color:var(--fg-dim);font-weight:600}
+@media(max-width:720px){.cards{grid-template-columns:1fr}.ph h1{font-size:23px}}
+</style></head><body>
+<header class="brand"><div class="wrap">
+<div class="mono">S</div><div class="mk"><b>SAGASP</b><span>Observatório do setor</span></div>
+<div class="fresh"><span class="dot"></span>Dados oficiais · ago/2026</div>
+</div></header>
+<main class="wrap">
+<div class="ph"><h1>Observatório do comércio atacadista de alimentos</h1>
+<p>Um retrato do setor no estado de São Paulo, com dados oficiais da Receita Federal e do Ministério do Trabalho. Escolha um tema para explorar.</p></div>
+<div class="cards"><a class="card" href="empresas.html"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg></div><h3>Empresas do setor</h3><p>Quantas empresas em atividade, de que porte e em quais ramos do atacado.</p><span class="go">Abrir →</span></a><a class="card" href="vinculos.html"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0 .01M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Vínculos de emprego</h3><p>Quantos postos de trabalho com carteira o setor sustenta, e onde estão.</p><span class="go">Abrir →</span></a><a class="card" href="empregos.html"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8M21 7v4h-4"/></svg></div><h3>Movimentação de empregos</h3><p>Vagas abertas e fechadas mês a mês, e o saldo de empregos do setor.</p><span class="go">Abrir →</span></a><a class="card" href="perfil.html"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 12 0v1"/></svg></div><h3>Quem o setor emprega</h3><p>O perfil de quem é contratado: idade, escolaridade e as profissões que mais abrem vagas.</p><span class="go">Abrir →</span></a></div>
+</main>
+<footer><div class="wrap">
+<div><b>Fontes:</b> Receita Federal · Novo CAGED (Ministério do Trabalho) · RAIS</div>
+<div><b>Atualização automática mensal</b> · dados até ago/2026</div>
+</div></footer>
+</body></html>

@@ -1,0 +1,95 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Movimentação de empregos · Observatório SAGASP</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{color-scheme:dark;--ink:#0b1733;--ink-2:#081029;--panel:#13224c;--panel-2:#192a5a;--raised:#20336c;
+--line:rgba(150,174,230,.15);--line-2:rgba(150,174,230,.3);--fg:#eef2fb;--fg-dim:#aab8dc;--fg-mut:#8192bf;
+--accent:#34c9ea;--accent-2:#6ea8ff;--pos:#45d394;--neg:#ff7d7d;--gold:#f4c863;
+--display:'Archivo',system-ui,sans-serif;--body:'IBM Plex Sans',system-ui,sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--ink);color:var(--fg);font-family:var(--body);line-height:1.5;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+.wrap{max-width:1000px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-.01em}
+.brand{border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--ink-2),var(--ink))}
+.brand .wrap{display:flex;align-items:center;gap:13px;padding-block:12px;flex-wrap:wrap}
+.mono{width:38px;height:38px;border-radius:10px;background:var(--panel-2);border:1px solid var(--line-2);display:grid;place-items:center;font-family:var(--display);font-weight:800;color:var(--accent);font-size:20px}
+.mk b{font-family:var(--display);font-weight:800;letter-spacing:.13em;font-size:15px;display:block}
+.mk span{color:var(--fg-dim);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.fresh{margin-left:auto;display:inline-flex;align-items:center;gap:7px;background:rgba(69,211,148,.12);border:1px solid rgba(69,211,148,.3);color:#bff3da;border-radius:999px;padding:6px 12px;font-size:12px;font-weight:500}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--pos);box-shadow:0 0 0 3px rgba(69,211,148,.18)}
+.ph{padding-block:22px 4px}.ph h1{font-size:25px;font-weight:700;line-height:1.14}
+.ph p{color:var(--fg-dim);max-width:64ch;margin:9px 0 0;font-size:14.5px}
+.ph .src{color:var(--fg-mut);font-size:12px;margin-top:10px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding-block:18px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px 16px}
+.kpi .lab{color:var(--fg-mut);font-size:11.5px;font-weight:500}
+.kpi .val{font-family:var(--display);font-weight:800;font-size:28px;margin-top:6px;letter-spacing:-.025em;line-height:1}
+.kpi .val.sm{font-size:19px}
+.kpi .meta{font-size:11.5px;margin-top:6px;color:var(--fg-dim)}
+.kpi .val.pos{color:var(--pos)}.kpi .val.neg{color:var(--neg)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding-bottom:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;min-width:0}
+.card.full{grid-column:1/-1}
+.card h3{font-size:14px;font-weight:600}.card .cap{color:var(--fg-mut);font-size:12px;margin-top:2px}
+svg.chart{width:100%;height:auto;display:block;margin-top:10px;overflow:visible}
+.axlab{fill:var(--fg-mut);font-size:11px;font-family:var(--body)}
+.vlab{fill:var(--fg);font-size:12px;font-family:var(--body);font-weight:600}
+.rank{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+.rk .top{display:flex;justify-content:space-between;gap:10px;font-size:13px;align-items:baseline}
+.rk .nm{color:var(--fg-dim);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rk .vv{font-weight:700;font-family:var(--display);white-space:nowrap}
+.bar{height:8px;border-radius:5px;background:var(--raised);margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--accent-2),var(--accent))}
+.nota{font-size:13px;color:var(--fg-dim);background:var(--ink-2);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:13px 16px;margin-top:4px}
+.nota b{color:var(--fg)}
+footer{border-top:1px solid var(--line);margin-top:22px}
+footer .wrap{display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;padding-block:16px 28px;color:var(--fg-mut);font-size:12px}
+footer b{color:var(--fg-dim);font-weight:600}
+@media(max-width:720px){.kpis{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.ph h1{font-size:21px}}
+</style></head><body>
+<header class="brand"><div class="wrap">
+<div class="mono">S</div><div class="mk"><b>SAGASP</b><span>Observatório do setor</span></div>
+<div class="fresh"><span class="dot"></span>Dados oficiais · ago/2026</div>
+</div></header>
+<main class="wrap">
+<div class="ph"><h1>Movimentação de empregos</h1><p>As vagas abertas e fechadas com carteira assinada no setor, mês a mês. O saldo mostra se o comércio atacadista de alimentos está criando ou perdendo empregos.</p><div class="src">Fonte: Novo CAGED · Ministério do Trabalho · 25 atividades · estado de SP</div></div>
+<div class="kpis"><div class="kpi"><div class="lab">Saldo em 12 meses</div><div class="val pos">+4.131</div><div class="meta">mais contratações que saídas</div></div><div class="kpi"><div class="lab">Contratações</div><div class="val ">90.597</div><div class="meta">em 12 meses</div></div><div class="kpi"><div class="lab">Desligamentos</div><div class="val ">86.466</div><div class="meta">em 12 meses</div></div><div class="kpi"><div class="lab">Salário de entrada</div><div class="val ">R$ 2.573</div><div class="meta">média na contratação</div></div></div>
+<div class="grid"><div class="card full"><h3>Saldo de empregos, mês a mês</h3><div class="cap">Contratações menos desligamentos em cada mês · últimos 12 meses</div><svg class="chart" id="b0" viewBox="0 0 640 200" role="img" aria-label="Saldo de empregos, mês a mês"></svg></div></div>
+<div class="nota">Nos últimos 12 meses o setor <b>criou 4.131 postos a mais</b> do que fechou — um saldo positivo, com variação natural entre os meses do ano.</div>
+</main>
+<footer><div class="wrap">
+<div><b>Fontes:</b> Receita Federal · Novo CAGED (Ministério do Trabalho) · RAIS</div>
+<div><b>Atualização automática mensal</b> · dados até ago/2026</div>
+</div></footer>
+<script>
+var D={"blocos": [{"t": "diverg", "titulo": "Saldo de empregos, mês a mês", "cap": "Contratações menos desligamentos em cada mês · últimos 12 meses", "d": [{"m": "ago/25", "v": 1098}, {"m": "set/25", "v": 512}, {"m": "out/25", "v": 414}, {"m": "nov/25", "v": 438}, {"m": "dez/25", "v": -784}, {"m": "jan/26", "v": -840}, {"m": "fev/26", "v": 874}, {"m": "mar/26", "v": 1105}, {"m": "abr/26", "v": -308}, {"m": "mai/26", "v": 399}, {"m": "jun/26", "v": 918}, {"m": "jul/26", "v": 616}, {"m": "ago/26", "v": 787}], "full": true}]};
+var fmt=function(n){return Number(n).toLocaleString('pt-BR')};
+function rank(el,data,color,suf){var max=Math.max.apply(null,data.map(function(d){return d[1]}));
+ el.innerHTML=data.map(function(d){var w=Math.round(d[1]/max*100);var bg=color?('background:'+color):'';
+ var v=suf?(fmt(d[1])+suf):fmt(d[1]);
+ return '<div class="rk"><div class="top"><span class="nm">'+d[0]+'</span><span class="vv">'+v+'</span></div><div class="bar"><i style="width:'+w+'%;'+bg+'"></i></div></div>'}).join('')}
+function vbars(el,data,suf){var base=168,top=26,x0=20,x1=610;var max=Math.max.apply(null,data.map(function(d){return d[1]}));
+ var n=data.length,step=(x1-x0)/n,bw=Math.min(54,step*0.56);
+ var s='<defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--accent)"/><stop offset="1" stop-color="var(--accent-2)"/></linearGradient></defs>';
+ s+='<line x1="'+x0+'" y1="'+base+'" x2="'+x1+'" y2="'+base+'" stroke="var(--line-2)"/>';
+ data.forEach(function(d,i){var v=d[1],h=v/max*(base-top),cx=x0+step*i+step/2;
+  s+='<rect x="'+(cx-bw/2).toFixed(1)+'" y="'+(base-h).toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+h.toFixed(1)+'" rx="5" fill="url(#g1)"/>';
+  s+='<text class="vlab" x="'+cx.toFixed(1)+'" y="'+(base-h-7).toFixed(1)+'" text-anchor="middle">'+(suf?fmt(v)+suf:fmt(v))+'</text>';
+  s+='<text class="axlab" x="'+cx.toFixed(1)+'" y="'+(base+17)+'" text-anchor="middle">'+d[0]+'</text>'});
+ el.innerHTML=s}
+function diverg(el,data){var zero=106,x0=22,x1=615;var max=Math.max.apply(null,data.map(function(d){return Math.abs(d.v)}));
+ var n=data.length,step=(x1-x0)/n,bw=Math.min(34,step*0.62),k=74/max;
+ var s='<line x1="'+x0+'" y1="'+zero+'" x2="'+x1+'" y2="'+zero+'" stroke="var(--line-2)"/>';
+ data.forEach(function(d,i){var h=Math.abs(d.v)*k,cx=x0+step*i+step/2,pos=d.v>=0;var y=pos?zero-h:zero;var col=pos?'var(--pos)':'var(--neg)';
+  s+='<rect x="'+(cx-bw/2).toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+h.toFixed(1)+'" rx="3" fill="'+col+'" opacity=".92"/>';
+  s+='<text class="axlab" x="'+cx.toFixed(1)+'" y="'+(pos?y-5:y+h+13).toFixed(1)+'" text-anchor="middle" style="font-size:10px">'+(d.v>0?'+':'')+fmt(d.v)+'</text>';
+  if(i===0||i===n-1||i===((n/2)|0))s+='<text class="axlab" x="'+cx.toFixed(1)+'" y="194" text-anchor="middle">'+d.m+'</text>'});
+ el.innerHTML=s}
+D.blocos.forEach(function(b,i){var el=document.getElementById('b'+i);
+ if(b.t==='rank')rank(el,b.d,b.color,b.suf);
+ else if(b.t==='vbars')vbars(el,b.d,b.suf);
+ else if(b.t==='diverg')diverg(el,b.d)});
+</script>
+</body></html>
